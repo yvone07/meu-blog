@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        .post {
+            background-color: #f30808;
+            border: 1px solid #2649d4;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #093c5e;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #a7287f;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218188;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meu Blog</h1>
+    <div id="posts"></div>
+    <input type="text" id="postInput" placeholder="Digite seu post">
+    <button onclick="addPost()">Adicionar Post</button>
+
+    <script>
+        function addPost() {
+            const input = document.getElementById('postInput');
+            const postsDiv = document.getElementById('posts');
+
+            if (input.value.trim() === '') {
+                alert('Por favor, digite um post.');
+                return;
+            }
+
+            const newPost = document.createElement('div');
+            newPost.classList.add('post');
+            newPost.textContent = input.value;
+            postsDiv.appendChild(newPost);
+
+            input.value = ''; // Limpa o campo de entrada
+        }
+    </script>
+</body>
+</html>

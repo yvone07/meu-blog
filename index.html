@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .post { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Meu Blog</h1>
+    <div id="posts"></div>
+    <input type="text" id="postInput" placeholder="Digite seu post">
+    <button onclick="addPost()">Adicionar Post</button>
+
+    <script>
+        function addPost() {
+            const input = document.getElementById('postInput');
+            const postsDiv = document.getElementById('posts');
+            const newPost = document.createElement('div');
+            newPost.classList.add('post');
+            newPost.textContent = input.value;
+            postsDiv.appendChild(newPost);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
